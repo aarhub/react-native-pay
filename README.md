@@ -1,1 +1,1 @@
-# react-native-pay
+# React Native Pay
