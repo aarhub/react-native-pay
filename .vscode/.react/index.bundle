@@ -13837,7 +13837,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
     self.fetch.polyfill = true;
   })(typeof self !== 'undefined' ? self : this);
-},38,[],"node_modules/whatwg-fetch/fetch.js");
+},38,[],"node_modules/react-native/node_modules/whatwg-fetch/fetch.js");
 __d(function (global, _require, module, exports, _dependencyMap) {
   'use strict';
 
@@ -14703,7 +14703,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
   }
 
   module.exports = prettyFormat;
-},48,[49],"node_modules/react-native/node_modules/pretty-format/index.js");
+},48,[49],"node_modules/pretty-format/index.js");
 __d(function (global, _require, module, exports, _dependencyMap) {
   'use strict';
 
@@ -14712,7 +14712,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
   module.exports = function printString(val) {
     return val.replace(ESCAPED_CHARACTERS, '\\$1');
   };
-},49,[],"node_modules/react-native/node_modules/pretty-format/printString.js");
+},49,[],"node_modules/pretty-format/printString.js");
 __d(function (global, _require, module, exports, _dependencyMap) {
   !function (global) {
     "use strict";
@@ -60167,6 +60167,10 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   var _reactNative = _require(_dependencyMap[2], "react-native");
 
+  var _Pay = _require(_dependencyMap[3], "./src/components/Pay");
+
+  var _Pay2 = _interopRequireDefault(_Pay);
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -60194,11 +60198,6 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     };
   }
 
-  var instructions = _reactNative.Platform.select({
-    ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-    android: 'Double tap R on your keyboard to reload,\n' + 'Shake or press menu button for dev menu'
-  });
-
   var App = _wrapComponent("App")(function (_Component) {
     _inherits(App, _Component);
 
@@ -60211,59 +60210,12 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     _createClass(App, [{
       key: "render",
       value: function render() {
-        return _react3.default.createElement(
-          _reactNative.View,
-          {
-            style: styles.container,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 20
-            }
-          },
-          _react3.default.createElement(
-            _reactNative.Text,
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 21
-              }
-            },
-            "Shit fucker"
-          ),
-          _react3.default.createElement(
-            _reactNative.Text,
-            {
-              style: styles.welcome,
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 22
-              }
-            },
-            "Welcome to React Native!"
-          ),
-          _react3.default.createElement(
-            _reactNative.Text,
-            {
-              style: styles.instructions,
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 25
-              }
-            },
-            "To get started, edit App.js"
-          ),
-          _react3.default.createElement(
-            _reactNative.Text,
-            {
-              style: styles.instructions,
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 28
-              }
-            },
-            instructions
-          )
-        );
+        return _react3.default.createElement(_Pay2.default, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 14
+          }
+        });
       }
     }]);
 
@@ -60290,6 +60242,734 @@ __d(function (global, _require, module, exports, _dependencyMap) {
       marginBottom: 5
     }
   });
-},490,[111,179,12],"App.js");
+},490,[111,179,12,491],"App.js");
+__d(function (global, _require, module, exports, _dependencyMap) {
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+
+    var _react2 = _require(_dependencyMap[0], "react");
+
+    var _react3 = _interopRequireDefault(_react2);
+
+    var _index = _require(_dependencyMap[1], "./../../node_modules/react-transform-hmr/lib/index.js");
+
+    var _index2 = _interopRequireDefault(_index);
+
+    var _jsxFileName = "/Volumes/SD/Projects/react-native-pay/src/components/Pay.js";
+
+    var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+    var _React = _require(_dependencyMap[2], "React");
+
+    var _React2 = _interopRequireDefault(_React);
+
+    var _reactNative = _require(_dependencyMap[3], "react-native");
+
+    var _reactNativeSimpleRadioButton = _require(_dependencyMap[4], "react-native-simple-radio-button");
+
+    var _reactNativeSimpleRadioButton2 = _interopRequireDefault(_reactNativeSimpleRadioButton);
+
+    function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    var _components = {
+        Pay: {
+            displayName: "Pay"
+        }
+    };
+
+    var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+        filename: "/Volumes/SD/Projects/react-native-pay/src/components/Pay.js",
+        components: _components,
+        locals: [module],
+        imports: [_react3.default]
+    });
+
+    function _wrapComponent(id) {
+        return function (Component) {
+            return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+        };
+    }
+
+    var Alipay = _reactNative.NativeModules.Alipay,
+        PayPal = _reactNative.NativeModules.PayPal;
+
+    var Pay = _wrapComponent("Pay")(function (_React$PureComponent) {
+        _inherits(Pay, _React$PureComponent);
+
+        function Pay(props) {
+            var _this2 = this;
+
+            _classCallCheck(this, Pay);
+
+            var _this = _possibleConstructorReturn(this, (Pay.__proto__ || Object.getPrototypeOf(Pay)).call(this, props));
+
+            _this.onPressPayPal = function () {
+                PayPal.initialize(PayPal.NO_NETWORK, "AbtbfDb7XIveXS3CnE1yY6vuU3EgvSUblWTf9K_knEsWvuhV1nP1zjX1TPGnnnTrFY7xi88Dm8E0rtK7");
+                PayPal.pay({
+                    price: '40.70',
+                    currency: 'MYR',
+                    description: 'Test Order'
+                }).then(function (confirm) {
+                    return console.log(confirm);
+                }).catch(function (error) {
+                    return console.log(error);
+                });
+            };
+
+            _this.onPressAlipay = function _callee() {
+                var ret;
+                return regeneratorRuntime.async(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _context.next = 2;
+                                return regeneratorRuntime.awrap(call(Alipay.pay, {}));
+
+                            case 2:
+                                ret = _context.sent;
+
+                                if (ret.resultStatus === '9000') {} else {}
+
+                            case 4:
+                            case "end":
+                                return _context.stop();
+                        }
+                    }
+                }, null, _this2);
+            };
+
+            _this.state = {
+                radio: 0
+            };
+            return _this;
+        }
+
+        _createClass(Pay, [{
+            key: "render",
+            value: function render() {
+                var _this3 = this;
+
+                var radio_props = [{
+                    label: 'PayPal',
+                    value: 0
+                }, {
+                    label: 'Alipay',
+                    value: 1
+                }];
+                return _React2.default.createElement(
+                    _reactNative.View,
+                    {
+                        style: styles.container,
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 24
+                        }
+                    },
+                    _React2.default.createElement(
+                        _reactNative.Text,
+                        {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 25
+                            }
+                        },
+                        "React Native integrate the APIs of mobile pay."
+                    ),
+                    _React2.default.createElement(_reactNativeSimpleRadioButton2.default, {
+                        radio_props: radio_props,
+                        initial: 0,
+                        onPress: function onPress(value) {
+                            _this3.setState({
+                                radio: value
+                            });
+                        },
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 27
+                        }
+                    }),
+                    _React2.default.createElement(_reactNative.Button, {
+                        onPress: this.onPressPayPal,
+                        title: "Confirm Pay",
+                        style: styles.confirm,
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 32
+                        }
+                    })
+                );
+            }
+        }]);
+
+        return Pay;
+    }(_React2.default.PureComponent));
+
+    exports.default = Pay;
+
+    var styles = _reactNative.StyleSheet.create({
+        container: {
+            margin: 6,
+            flexDirection: 'column',
+            justifyContent: 'flex-start'
+        },
+        confirm: {
+            margin: 20
+        }
+    });
+},491,[111,179,133,12,492],"src/components/Pay.js");
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.RadioButtonLabel = exports.RadioButtonInput = exports.RadioButton = undefined;
+
+  var _SimpleRadioButton = _require(_dependencyMap[0], "./lib/SimpleRadioButton.js");
+
+  var _SimpleRadioButton2 = _interopRequireDefault(_SimpleRadioButton);
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  exports.default = _SimpleRadioButton2.default;
+  exports.RadioButton = _SimpleRadioButton.RadioButton;
+  exports.RadioButtonInput = _SimpleRadioButton.RadioButtonInput;
+  exports.RadioButtonLabel = _SimpleRadioButton.RadioButtonLabel;
+},492,[493],"node_modules/react-native-simple-radio-button/index.js");
+__d(function (global, _require, module, exports, _dependencyMap) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.RadioButtonLabel = exports.RadioButtonInput = exports.RadioButton = undefined;
+
+  var _react2 = _require(_dependencyMap[0], "react");
+
+  var _react3 = _interopRequireDefault(_react2);
+
+  var _index = _require(_dependencyMap[1], "./../../react-transform-hmr/lib/index.js");
+
+  var _index2 = _interopRequireDefault(_index);
+
+  var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+  var _class,
+      _temp,
+      _jsxFileName = "/Volumes/SD/Projects/react-native-pay/node_modules/react-native-simple-radio-button/lib/SimpleRadioButton.js",
+      _class2,
+      _temp2;
+
+  var _Style = _require(_dependencyMap[2], "./Style.js");
+
+  var _Style2 = _interopRequireDefault(_Style);
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+  function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+  function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+  var _components = {
+    RadioForm: {
+      displayName: "RadioForm"
+    },
+    RadioButton: {
+      displayName: "RadioButton"
+    },
+    RadioButtonInput: {
+      displayName: "RadioButtonInput"
+    },
+    RadioButtonLabel: {
+      displayName: "RadioButtonLabel"
+    }
+  };
+
+  var _reactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: "/Volumes/SD/Projects/react-native-pay/node_modules/react-native-simple-radio-button/lib/SimpleRadioButton.js",
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _reactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var React = _require(_dependencyMap[0], 'react');
+
+  var ReactNative = _require(_dependencyMap[3], 'react-native');
+
+  var Text = ReactNative.Text,
+      View = ReactNative.View,
+      TouchableOpacity = ReactNative.TouchableOpacity,
+      TouchableWithoutFeedback = ReactNative.TouchableWithoutFeedback,
+      LayoutAnimation = ReactNative.LayoutAnimation,
+      Platform = ReactNative.Platform,
+      UIManager = ReactNative.UIManager;
+
+  var RadioForm = _wrapComponent("RadioForm")((_temp = _class = function (_React$Component) {
+    _inherits(RadioForm, _React$Component);
+
+    function RadioForm(props) {
+      _classCallCheck(this, RadioForm);
+
+      var _this = _possibleConstructorReturn(this, (RadioForm.__proto__ || Object.getPrototypeOf(RadioForm)).call(this, props));
+
+      _this.state = {
+        is_active_index: props.initial
+      };
+
+      if (Platform.OS === 'android') {
+        UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+      }
+
+      _this._renderButton = _this._renderButton.bind(_this);
+      return _this;
+    }
+
+    _createClass(RadioForm, [{
+      key: "updateIsActiveIndex",
+      value: function updateIsActiveIndex(index) {
+        this.setState({
+          is_active_index: index
+        });
+        this.props.onPress(this.props.radio_props[index], index);
+      }
+    }, {
+      key: "_renderButton",
+      value: function _renderButton(obj, i) {
+        var _this2 = this;
+
+        return React.createElement(RadioButton, {
+          accessible: this.props.accessible,
+          accessibilityLabel: this.props.accessibilityLabel ? this.props.accessibilityLabel + '|' + i : 'radioButton' + '|' + i,
+          testID: this.props.testID ? this.props.testID + '|' + i : 'radioButton' + '|' + i,
+          isSelected: this.state.is_active_index === i,
+          obj: obj,
+          key: i,
+          index: i,
+          buttonColor: this.state.is_active_index === i ? this.props.selectedButtonColor : this.props.buttonColor,
+          buttonSize: this.props.buttonSize,
+          buttonOuterSize: this.props.buttonOuterSize,
+          labelHorizontal: this.props.labelHorizontal,
+          labelColor: this.state.is_active_index === i ? this.props.selectedLabelColor : this.props.labelColor,
+          labelStyle: this.props.labelStyle,
+          style: this.props.radioStyle,
+          animation: this.props.animation,
+          disabled: this.props.disabled,
+          onPress: function onPress(value, index) {
+            _this2.props.onPress(value, index);
+
+            _this2.setState({
+              is_active_index: index
+            });
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 49
+          }
+        });
+      }
+    }, {
+      key: "render",
+      value: function render() {
+        var render_content = false;
+
+        if (this.props.radio_props.length) {
+          render_content = this.props.radio_props.map(this._renderButton);
+        } else {
+          render_content = this.props.children;
+        }
+
+        return React.createElement(
+          View,
+          {
+            style: [_Style2.default.radioFrom, this.props.style, this.props.formHorizontal && _Style2.default.formHorizontal],
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 84
+            }
+          },
+          render_content
+        );
+      }
+    }]);
+
+    return RadioForm;
+  }(React.Component), _class.defaultProps = {
+    radio_props: [],
+    initial: 0,
+    buttonColor: '#2196f3',
+    selectedButtonColor: '#2196f3',
+    formHorizontal: false,
+    labelHorizontal: true,
+    animation: true,
+    labelColor: '#000',
+    selectedLabelColor: '#000',
+    wrapStyle: {},
+    disabled: false
+  }, _temp));
+
+  exports.default = RadioForm;
+
+  var RadioButton = exports.RadioButton = _wrapComponent("RadioButton")((_temp2 = _class2 = function (_React$Component2) {
+    _inherits(RadioButton, _React$Component2);
+
+    function RadioButton(props) {
+      _classCallCheck(this, RadioButton);
+
+      var _this3 = _possibleConstructorReturn(this, (RadioButton.__proto__ || Object.getPrototypeOf(RadioButton)).call(this, props));
+
+      _this3.state = {};
+      return _this3;
+    }
+
+    _createClass(RadioButton, [{
+      key: "shouldComponentUpdate",
+      value: function shouldComponentUpdate(nextProps, nextState) {
+        return true;
+      }
+    }, {
+      key: "componentWillUpdate",
+      value: function componentWillUpdate() {
+        if (this.props.animation) {
+          LayoutAnimation.spring();
+        }
+      }
+    }, {
+      key: "render",
+      value: function render() {
+        var c = this.props.children;
+        var idSeparator = this.props.idSeparator ? this.props.idSeparator : '|';
+        var idSeparatorAccessibilityLabelIndex = this.props.accessibilityLabel ? this.props.accessibilityLabel.indexOf(idSeparator) : -1;
+        var idSeparatorTestIdIndex = this.props.testID ? this.props.testID.indexOf(idSeparator) : -1;
+        var accessibilityLabel = this.props.accessibilityLabel ? idSeparatorAccessibilityLabelIndex !== -1 ? this.props.accessibilityLabel.substring(0, idSeparatorAccessibilityLabelIndex) : this.props.accessibilityLabel : 'radioButton';
+        var testID = this.props.testID ? idSeparatorTestIdIndex !== -1 ? this.props.testID.substring(0, idSeparatorTestIdIndex) : this.props.testID : 'radioButton';
+        var accessibilityLabelIndex = this.props.accessibilityLabel && idSeparatorAccessibilityLabelIndex !== -1 ? this.props.accessibilityLabel.substring(idSeparatorAccessibilityLabelIndex + 1) : '';
+        var testIDIndex = this.props.testID && testIDIndex !== -1 ? this.props.testID.split(testIDIndex + 1) : '';
+        var renderContent = false;
+        renderContent = c ? React.createElement(
+          View,
+          {
+            style: [_Style2.default.radioWrap, this.props.style, !this.props.labelHorizontal && _Style2.default.labelVerticalWrap],
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 139
+            }
+          },
+          c
+        ) : React.createElement(
+          View,
+          {
+            style: [_Style2.default.radioWrap, this.props.style, !this.props.labelHorizontal && _Style2.default.labelVerticalWrap],
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 147
+            }
+          },
+          React.createElement(RadioButtonInput, _extends({}, this.props, {
+            accessibilityLabel: accessibilityLabel + 'Input' + accessibilityLabelIndex,
+            testID: testID + 'Input' + testIDIndex,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 152
+            }
+          })),
+          React.createElement(RadioButtonLabel, _extends({}, this.props, {
+            accessibilityLabel: accessibilityLabel + 'Label' + accessibilityLabelIndex,
+            testID: testID + 'Label' + testIDIndex,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 155
+            }
+          }))
+        );
+        return React.createElement(
+          View,
+          {
+            style: this.props.wrapStyle,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 161
+            }
+          },
+          renderContent
+        );
+      }
+    }]);
+
+    return RadioButton;
+  }(React.Component), _class2.defaultProps = {
+    isSelected: false,
+    buttonColor: '#2196f3',
+    selectedButtonColor: '#2196f3',
+    labelHorizontal: true,
+    disabled: false,
+    idSeparator: '|'
+  }, _temp2));
+
+  var RadioButtonInput = exports.RadioButtonInput = _wrapComponent("RadioButtonInput")(function (_React$Component3) {
+    _inherits(RadioButtonInput, _React$Component3);
+
+    function RadioButtonInput(props) {
+      _classCallCheck(this, RadioButtonInput);
+
+      var _this4 = _possibleConstructorReturn(this, (RadioButtonInput.__proto__ || Object.getPrototypeOf(RadioButtonInput)).call(this, props));
+
+      _this4.state = {
+        isSelected: false,
+        buttonColor: props.buttonColor || '#2196f3'
+      };
+      return _this4;
+    }
+
+    _createClass(RadioButtonInput, [{
+      key: "render",
+      value: function render() {
+        var _this5 = this;
+
+        var innerSize = {
+          width: 20,
+          height: 20,
+          borderRadius: 20 / 2
+        };
+        var outerSize = {
+          width: 20 + 10,
+          height: 20 + 10,
+          borderRadius: (20 + 10) / 2
+        };
+
+        if (this.props.buttonSize) {
+          innerSize.width = this.props.buttonSize;
+          innerSize.height = this.props.buttonSize;
+          innerSize.borderRadius = this.props.buttonSize / 2;
+          outerSize.width = this.props.buttonSize + 10;
+          outerSize.height = this.props.buttonSize + 10;
+          outerSize.borderRadius = (this.props.buttonSize + 10) / 2;
+        }
+
+        if (this.props.buttonOuterSize) {
+          outerSize.width = this.props.buttonOuterSize;
+          outerSize.height = this.props.buttonOuterSize;
+          outerSize.borderRadius = this.props.buttonOuterSize / 2;
+        }
+
+        var outerColor = this.props.buttonOuterColor;
+        var borderWidth = this.props.borderWidth || 3;
+        var innerColor = this.props.buttonInnerColor;
+
+        if (this.props.buttonColor) {
+          outerColor = this.props.buttonColor;
+          innerColor = this.props.buttonColor;
+        }
+
+        var c = React.createElement(View, {
+          style: [_Style2.default.radioNormal, this.props.isSelected && _Style2.default.radioActive, this.props.isSelected && innerSize, this.props.isSelected && {
+            backgroundColor: innerColor
+          }],
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 200
+          }
+        });
+        var radioStyle = [_Style2.default.radio, {
+          borderColor: outerColor,
+          borderWidth: borderWidth
+        }, this.props.buttonStyle, outerSize];
+
+        if (this.props.disabled) {
+          return React.createElement(
+            View,
+            {
+              style: this.props.buttonWrapStyle,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 219
+              }
+            },
+            React.createElement(
+              View,
+              {
+                style: radioStyle,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 220
+                }
+              },
+              c
+            )
+          );
+        }
+
+        return React.createElement(
+          View,
+          {
+            style: this.props.buttonWrapStyle,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 228
+            }
+          },
+          React.createElement(
+            TouchableOpacity,
+            {
+              accessible: this.props.accessible,
+              accessibilityLabel: this.props.accessibilityLabel,
+              testID: this.props.testID,
+              style: radioStyle,
+              onPress: function onPress() {
+                _this5.props.onPress(_this5.props.obj.value, _this5.props.index);
+              },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 229
+              }
+            },
+            c
+          )
+        );
+      }
+    }]);
+
+    return RadioButtonInput;
+  }(React.Component));
+
+  RadioButtonInput.defaultProps = {
+    buttonInnerColor: '#2196f3',
+    buttonOuterColor: '#2196f3',
+    disabled: false
+  };
+
+  var RadioButtonLabel = exports.RadioButtonLabel = _wrapComponent("RadioButtonLabel")(function (_React$Component4) {
+    _inherits(RadioButtonLabel, _React$Component4);
+
+    function RadioButtonLabel(props) {
+      _classCallCheck(this, RadioButtonLabel);
+
+      var _this6 = _possibleConstructorReturn(this, (RadioButtonLabel.__proto__ || Object.getPrototypeOf(RadioButtonLabel)).call(this, props));
+
+      _this6.state = {
+        isSelected: false,
+        buttonColor: '#2196f3'
+      };
+      return _this6;
+    }
+
+    _createClass(RadioButtonLabel, [{
+      key: "render",
+      value: function render() {
+        var _this7 = this;
+
+        return React.createElement(
+          TouchableWithoutFeedback,
+          {
+            accessible: this.props.accessible,
+            accessibilityLabel: this.props.accessibilityLabel,
+            testID: this.props.testID,
+            onPress: function onPress() {
+              if (!_this7.props.disabled) {
+                _this7.props.onPress(_this7.props.obj.value, _this7.props.index);
+              }
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 259
+            }
+          },
+          React.createElement(
+            View,
+            {
+              style: [this.props.labelWrapStyle, _Style2.default.labelWrapStyle],
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 268
+              }
+            },
+            React.createElement(
+              Text,
+              {
+                style: [_Style2.default.radioLabel, !this.props.labelHorizontal && _Style2.default.labelVertical, {
+                  color: this.props.labelColor
+                }, this.props.labelStyle],
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 272
+                }
+              },
+              this.props.obj.label
+            )
+          )
+        );
+      }
+    }]);
+
+    return RadioButtonLabel;
+  }(React.Component));
+},493,[111,179,494,12],"node_modules/react-native-simple-radio-button/lib/SimpleRadioButton.js");
+__d(function (global, _require, module, exports, _dependencyMap) {
+  var React = _require(_dependencyMap[0], 'react');
+
+  var ReactNative = _require(_dependencyMap[1], 'react-native');
+
+  var StyleSheet = ReactNative.StyleSheet;
+  var Style = StyleSheet.create({
+    radioForm: {},
+    radioWrap: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      alignSelf: 'center',
+      marginBottom: 5
+    },
+    radio: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: 30,
+      height: 30,
+      alignSelf: 'center',
+      borderColor: '#2196f3',
+      borderRadius: 30
+    },
+    radioLabel: {
+      paddingLeft: 10,
+      lineHeight: 20
+    },
+    radioNormal: {
+      borderRadius: 10
+    },
+    radioActive: {
+      width: 20,
+      height: 20,
+      backgroundColor: '#2196f3'
+    },
+    labelWrapStyle: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      alignSelf: 'center'
+    },
+    labelVerticalWrap: {
+      flexDirection: 'column',
+      paddingLeft: 10
+    },
+    labelVertical: {
+      paddingLeft: 0
+    },
+    formHorizontal: {
+      flexDirection: 'row'
+    }
+  });
+  module.exports = Style;
+},494,[111,12],"node_modules/react-native-simple-radio-button/lib/Style.js");
 require(23);
 require(11);
