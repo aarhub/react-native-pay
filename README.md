@@ -1,6 +1,7 @@
 # React Native Pay
 
 A React Native demo for the PayPal. Just Android currently. 
+
 ![React Native PayPal Shot](https://raw.githubusercontent.com/fachilles/fachilles.github.io/master/static/imgs/react-native-pay/paypal-demo.png)   
 
 ## Installation
