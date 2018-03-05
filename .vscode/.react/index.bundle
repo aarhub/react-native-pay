@@ -60266,10 +60266,6 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
     var _reactNative = _require(_dependencyMap[3], "react-native");
 
-    var _reactNativeSimpleRadioButton = _require(_dependencyMap[4], "react-native-simple-radio-button");
-
-    var _reactNativeSimpleRadioButton2 = _interopRequireDefault(_reactNativeSimpleRadioButton);
-
     function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -60313,8 +60309,8 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             _this.onPressPayPal = function () {
                 PayPal.initialize(PayPal.NO_NETWORK, "AbtbfDb7XIveXS3CnE1yY6vuU3EgvSUblWTf9K_knEsWvuhV1nP1zjX1TPGnnnTrFY7xi88Dm8E0rtK7");
                 PayPal.pay({
-                    price: '40.70',
-                    currency: 'MYR',
+                    price: '1.00',
+                    currency: 'USD',
                     description: 'Test Order'
                 }).then(function (confirm) {
                     return console.log(confirm);
@@ -60345,6 +60341,8 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                 }, null, _this2);
             };
 
+            _this.onPressWechat = function () {};
+
             _this.state = {
                 radio: 0
             };
@@ -60354,8 +60352,6 @@ __d(function (global, _require, module, exports, _dependencyMap) {
         _createClass(Pay, [{
             key: "render",
             value: function render() {
-                var _this3 = this;
-
                 var radio_props = [{
                     label: 'PayPal',
                     value: 0
@@ -60369,39 +60365,30 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                         style: styles.container,
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 24
+                            lineNumber: 22
                         }
                     },
                     _React2.default.createElement(
                         _reactNative.Text,
                         {
+                            style: {
+                                width: '100%',
+                                textAlign: 'center'
+                            },
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 25
+                                lineNumber: 23
                             }
                         },
                         "React Native integrate the APIs of mobile pay."
                     ),
-                    _React2.default.createElement(_reactNativeSimpleRadioButton2.default, {
-                        radio_props: radio_props,
-                        initial: 0,
-                        onPress: function onPress(value) {
-                            _this3.setState({
-                                radio: value
-                            });
-                        },
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 27
-                        }
-                    }),
                     _React2.default.createElement(_reactNative.Button, {
                         onPress: this.onPressPayPal,
                         title: "Confirm Pay",
                         style: styles.confirm,
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 32
+                            lineNumber: 25
                         }
                     })
                 );
@@ -60417,13 +60404,13 @@ __d(function (global, _require, module, exports, _dependencyMap) {
         container: {
             margin: 6,
             flexDirection: 'column',
-            justifyContent: 'flex-start'
+            justifyContent: 'center'
         },
         confirm: {
             margin: 20
         }
     });
-},491,[111,179,133,12,492],"src/components/Pay.js");
+},491,[111,179,133,12],"src/components/Pay.js");
 __d(function (global, _require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
